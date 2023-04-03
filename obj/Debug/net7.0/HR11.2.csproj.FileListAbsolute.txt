@@ -1,0 +1,15 @@
+C:\VS\HR11.2\bin\Debug\net7.0\HR11.2.exe
+C:\VS\HR11.2\bin\Debug\net7.0\HR11.2.deps.json
+C:\VS\HR11.2\bin\Debug\net7.0\HR11.2.runtimeconfig.json
+C:\VS\HR11.2\bin\Debug\net7.0\HR11.2.dll
+C:\VS\HR11.2\bin\Debug\net7.0\HR11.2.pdb
+C:\VS\HR11.2\obj\Debug\net7.0\HR11.2.csproj.AssemblyReference.cache
+C:\VS\HR11.2\obj\Debug\net7.0\HR11.2.GeneratedMSBuildEditorConfig.editorconfig
+C:\VS\HR11.2\obj\Debug\net7.0\HR11.2.AssemblyInfoInputs.cache
+C:\VS\HR11.2\obj\Debug\net7.0\HR11.2.AssemblyInfo.cs
+C:\VS\HR11.2\obj\Debug\net7.0\HR11.2.csproj.CoreCompileInputs.cache
+C:\VS\HR11.2\obj\Debug\net7.0\HR11.2.dll
+C:\VS\HR11.2\obj\Debug\net7.0\refint\HR11.2.dll
+C:\VS\HR11.2\obj\Debug\net7.0\HR11.2.pdb
+C:\VS\HR11.2\obj\Debug\net7.0\HR11.2.genruntimeconfig.cache
+C:\VS\HR11.2\obj\Debug\net7.0\ref\HR11.2.dll
