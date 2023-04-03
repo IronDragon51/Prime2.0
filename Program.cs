@@ -6,30 +6,44 @@
         int count = 0;
         long min = (long)Math.Pow(10, (n - 1)) + 1;
         long max = ((long)Math.Pow(10, n)) - 1;
-        bool[] isPrimeArr = FillIsPrimeArray();
+        int[] isPrimeArr = new[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43 };
 
         for (long currentNumber = min; currentNumber <= max; currentNumber++)
         {
             satisfy = true;
 
+            if (currentNumber == 101101)
+            {
+                Console.WriteLine();
+            }
+
             int numberOfDigits = 3;
-            SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
+            satisfy = SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
             if (!satisfy)
             {
+                currentNumber += (int)Math.Pow(10, n - 2) / 10 - 1;
+                long round = (long)Math.Pow(10, n - numberOfDigits);
+                long number = (long)Math.Floor(Convert.ToDouble(currentNumber / round)) * round;
                 continue;
             }
 
             numberOfDigits = 4;
-            SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
+            satisfy = SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
             if (!satisfy)
             {
+                currentNumber += (int)Math.Pow(10, n - 3) / 10 - 1;
+                long round = (long)Math.Pow(10, n - numberOfDigits);
+                long number = (long)Math.Round(Convert.ToDouble(currentNumber / round), 0) * round;
                 continue;
             }
 
             numberOfDigits = 5;
-            SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
+            satisfy = SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
             if (!satisfy)
             {
+                currentNumber += (int)Math.Pow(10, n - 4) / 10 - 1;
+                long round = (long)Math.Pow(10, n - numberOfDigits);
+                long number = (long)Math.Round(Convert.ToDouble(currentNumber / round), 0) * round;
                 continue;
             }
 
@@ -42,7 +56,7 @@
         return count;
     }
 
-    public static void SatisfyTheRule(int numberOfDigits, long currentNumber, int n, bool[] isPrimeArr)
+    public static bool SatisfyTheRule(int numberOfDigits, long currentNumber, int n, int[] isPrimeArr)
     {
         if (satisfy)
         {
@@ -50,40 +64,18 @@
             {
                 int sumDigits = currentNumber.ToString().Substring(j, numberOfDigits).Sum(c => c - '0');
 
-                satisfy = isPrimeArr[sumDigits];
-                if (!satisfy)
+                if (isPrimeArr.Contains(sumDigits))
                 {
+                    satisfy = true;
+                }
+                else
+                {
+                    satisfy = false;
                     break;
                 }
             }
         }
-    }
-
-    public static bool[] FillIsPrimeArray()
-    {
-        bool[] isPrimeArr = new bool[45];
-
-        for (int i = 0; i < isPrimeArr.Length; i++)
-        {
-            isPrimeArr[i] = IsPrime(i);
-        }
-
-        return isPrimeArr;
-    }
-
-    public static bool IsPrime(int sumDigits)
-    {
-        if (sumDigits == 2) return true;
-        if (sumDigits % 2 == 0) return false;
-        if (sumDigits <= 1) return false;
-
-        var boundary = (int)Math.Floor(Math.Sqrt(sumDigits));
-
-        for (int i = 3; i <= boundary; i += 2)
-            if (sumDigits % i == 0)
-                return false;
-
-        return true;
+        return satisfy;
     }
 
 
