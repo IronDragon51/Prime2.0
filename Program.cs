@@ -21,9 +21,11 @@
             satisfy = SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
             if (!satisfy)
             {
-                currentNumber += (int)Math.Pow(10, n - 2) / 10 - 1;
-                long round = (long)Math.Pow(10, n - numberOfDigits);
-                long number = (long)Math.Floor(Convert.ToDouble(currentNumber / round)) * round;
+                long digits = (long)Math.Pow(10, n - numberOfDigits);
+                double value = Convert.ToDouble(currentNumber / digits);
+
+                long number = (long)Math.Round(value, 0) * digits;
+                currentNumber += (long)Math.Pow(10, n - 2) / 10 - 1;
                 continue;
             }
 
@@ -31,9 +33,9 @@
             satisfy = SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
             if (!satisfy)
             {
-                currentNumber += (int)Math.Pow(10, n - 3) / 10 - 1;
                 long round = (long)Math.Pow(10, n - numberOfDigits);
                 long number = (long)Math.Round(Convert.ToDouble(currentNumber / round), 0) * round;
+                currentNumber += (int)Math.Pow(10, n - 3) / 10 - 1;
                 continue;
             }
 
@@ -41,9 +43,9 @@
             satisfy = SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
             if (!satisfy)
             {
-                currentNumber += (int)Math.Pow(10, n - 4) / 10 - 1;
                 long round = (long)Math.Pow(10, n - numberOfDigits);
                 long number = (long)Math.Round(Convert.ToDouble(currentNumber / round), 0) * round;
+                currentNumber += (int)Math.Pow(10, n - 4) / 10 - 1;
                 continue;
             }
 
