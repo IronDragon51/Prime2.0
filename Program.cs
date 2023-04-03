@@ -13,21 +13,21 @@
             satisfy = true;
 
             int numberOfDigits = 3;
-            SatisfyTheRule(numberOfDigits, currentNumber, n);
+            SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
             if (!satisfy)
             {
                 continue;
             }
 
             numberOfDigits = 4;
-            SatisfyTheRule(numberOfDigits, currentNumber, n);
+            SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
             if (!satisfy)
             {
                 continue;
             }
 
             numberOfDigits = 5;
-            SatisfyTheRule(numberOfDigits, currentNumber, n);
+            SatisfyTheRule(numberOfDigits, currentNumber, n, isPrimeArr);
             if (!satisfy)
             {
                 continue;
@@ -42,7 +42,7 @@
         return count;
     }
 
-    public static void SatisfyTheRule(int numberOfDigits, long currentNumber, int n)
+    public static void SatisfyTheRule(int numberOfDigits, long currentNumber, int n, bool[] isPrimeArr)
     {
         if (satisfy)
         {
@@ -50,7 +50,7 @@
             {
                 int sumDigits = currentNumber.ToString().Substring(j, numberOfDigits).Sum(c => c - '0');
 
-                satisfy = IsPrime(sumDigits);
+                satisfy = isPrimeArr[sumDigits];
                 if (!satisfy)
                 {
                     break;
