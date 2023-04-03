@@ -6,6 +6,7 @@
         int count = 0;
         long min = (long)Math.Pow(10, (n - 1)) + 1;
         long max = ((long)Math.Pow(10, n)) - 1;
+        bool[] isPrimeArr = FillIsPrimeArray();
 
         for (long currentNumber = min; currentNumber <= max; currentNumber++)
         {
@@ -58,11 +59,22 @@
         }
     }
 
+    public static bool[] FillIsPrimeArray()
+    {
+        bool[] isPrimeArr = new bool[45];
+
+        for (int i = 0; i < isPrimeArr.Length; i++)
+        {
+            isPrimeArr[i] = IsPrime(i);
+        }
+
+        return isPrimeArr;
+    }
 
     public static bool IsPrime(int sumDigits)
     {
-        if (sumDigits % 2 == 0) return false;
         if (sumDigits == 2) return true;
+        if (sumDigits % 2 == 0) return false;
         if (sumDigits <= 1) return false;
 
         var boundary = (int)Math.Floor(Math.Sqrt(sumDigits));
@@ -75,17 +87,6 @@
     }
 
 
-    public static bool[] FillIsPrimeArray()
-    {
-        bool[] isPrime = new bool[100001];
-
-        for (int i = 100; i < isPrime.Length; i++)
-        {
-            isPrime[i] = IsPrime(i);
-        }
-
-        return isPrime;
-    }
 
 }
 
