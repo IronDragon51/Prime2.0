@@ -75,6 +75,18 @@
     }
 
 
+    public static bool[] FillIsPrimeArray()
+    {
+        bool[] isPrime = new bool[100001];
+
+        for (int i = 100; i < isPrime.Length; i++)
+        {
+            isPrime[i] = IsPrime(i);
+        }
+
+        return isPrime;
+    }
+
 }
 
 class Solution
